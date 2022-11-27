@@ -4,7 +4,6 @@ module.exports = defineConfig({
     host: "localhost",
     port: "8080",
   },
-  transpileDependencies: ["vuetify"],
   chainWebpack: (config) => {
     config.output.chunkFilename(`js/[name].[fullhash:8].js`);
   },
