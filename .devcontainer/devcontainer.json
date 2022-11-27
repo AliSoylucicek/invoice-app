@@ -1,0 +1,33 @@
+{
+  "name": "Invoice App",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/invoice-app,type=bind,consistency=delegated",
+  "workspaceFolder": "/workspaces/invoice-app",
+  "remoteUser": "node",
+  "forwardPorts": [],
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "sh": {
+        "path": "/bin/sh"
+      }
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "extensions": [
+    "christian-kohler.npm-intellisense",
+    "eg2.vscode-npm-script",
+    "dbaeumer.vscode-eslint",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "formulahendry.auto-close-tag",
+    "eamodio.gitlens",
+    "TzachOvadia.todo-list",
+    "redhat.vscode-yaml",
+    "EditorConfig.EditorConfig",
+    "vue.volar",
+    "esbenp.prettier-vscode",
+    "seatonjiang.gitmoji-vscode"
+  ]
+}
