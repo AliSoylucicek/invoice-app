@@ -1,0 +1,23 @@
+[
+  {
+    "identifier": {
+      "id": "15",
+      "year": "2022"
+    },
+    "date": "2022-01-01",
+    "purchaser": {
+      "name": "purchaser",
+      "taxCode": "12345678901"
+    },
+    "provider": {
+      "name": "provider",
+      "taxCode": "12345678901"
+    },
+    "items": [{ "amount": 35, "quantity": 15, "tax": 20 }],
+    "payment": {
+      "amount": 1500,
+      "method": "bank",
+      "detail": "1234567898765432"
+    }
+  }
+]
