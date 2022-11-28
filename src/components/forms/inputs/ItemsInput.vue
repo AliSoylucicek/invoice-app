@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="(item, index) in value" :key="index">
+    <div v-for="(item, index) in value" :key="index" data-testid="item">
       <v-row>
         <v-col cols="1" class="text-center py-8">
           <h6 class="text-h6 text--primary">{{ index + 1 }}</h6>
@@ -25,14 +25,14 @@
           />
         </v-col>
         <v-col cols="1" class="text-center py-8">
-          <v-btn icon @click="removeItem(index)">
+          <v-btn icon @click="removeItem(index)" data-testid="remove-item">
             <v-icon>mdi-minus</v-icon>
           </v-btn>
         </v-col>
       </v-row>
     </div>
     <div class="text-right">
-      <v-btn color="primary" @click="addItem">
+      <v-btn color="primary" @click="addItem" data-testid="add-item">
         <v-icon>mdi-plus</v-icon> Add Item
       </v-btn>
     </div>
