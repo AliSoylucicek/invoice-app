@@ -61,6 +61,7 @@
         <v-text-field
           counter="11"
           v-model="provider.taxCode"
+          :rules="[rules.required, rules.alphaNum, rules.taxLength]"
           label="Tax Code"
           required
         />
@@ -78,6 +79,7 @@
         <v-text-field
           counter="11"
           v-model="purchaser.taxCode"
+          :rules="[rules.required, rules.alphaNum, rules.taxLength]"
           label="Tax Code"
           required
         />
@@ -130,6 +132,7 @@
 <script>
 import ItemsInput from "./inputs/ItemsInput.vue";
 import mockInvoices from "@/mocks/invoices.json";
+import validation from "@/mixins/validation.js";
 export default {
   components: {
     ItemsInput,
@@ -161,9 +164,6 @@ export default {
         { text: "Bank Payment", value: "bank" },
         { text: "PagoPA", value: "pagopa" },
       ],
-      rules: {
-        required: (v) => !!v || "This field is required",
-      },
     };
   },
   mounted() {
@@ -178,7 +178,17 @@ export default {
   methods: {
     async submit() {
       await this.$refs.form.validate();
-      this.$emit("submit", this.formData);
+      if (this.valid) {
+        const formData = {
+          identifier: this.identifier,
+          date: this.date,
+          provider: this.provider,
+          purchaser: this.purchaser,
+          items: this.items,
+          payment: this.payment,
+        };
+        this.$emit("submit", formData);
+      }
     },
     addItem() {
       this.items.push({ amount: null, quantity: null, tax: null });
@@ -187,6 +197,7 @@ export default {
       this.$refs.menu.save(date);
     },
   },
+  mixins: [validation],
 };
 </script>
 <style lang=""></style>

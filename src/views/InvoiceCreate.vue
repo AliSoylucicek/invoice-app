@@ -22,6 +22,7 @@ export default {
     ...mapActions(useInvoiceStore, ["addInvoice"]),
     onSubmit(data) {
       this.addInvoice(data);
+      this.$router.push({ name: "invoice" });
     },
   },
 };
