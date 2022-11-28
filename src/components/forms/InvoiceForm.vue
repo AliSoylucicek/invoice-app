@@ -89,37 +89,7 @@
         <h6 class="text-h6 text--primary">Items</h6>
       </v-col>
       <v-col cols="12">
-        <div v-for="(item, index) in items" :key="index">
-          <v-row>
-            <v-col cols="1" class="text-center py-8">
-              <h6 class="text-h6 text--primary">{{ index + 1 }}</h6>
-            </v-col>
-            <v-col cols="4">
-              <v-text-field
-                v-model="item.amount"
-                suffix="€"
-                label="Price"
-                required
-              />
-            </v-col>
-            <v-col cols="4">
-              <v-text-field v-model="item.quantity" label="Quantity" required />
-            </v-col>
-            <v-col cols="3">
-              <v-text-field
-                v-model="item.tax"
-                suffix="%"
-                label="Unit Tax"
-                required
-              />
-            </v-col>
-          </v-row>
-        </div>
-        <div class="text-right">
-          <v-btn color="primary" @click="addItem">
-            <v-icon>mdi-plus</v-icon> Add Item
-          </v-btn>
-        </div>
+        <ItemsInput v-model="items" />
       </v-col>
       <v-col cols="12" class="py-0">
         <v-divider />
@@ -152,12 +122,18 @@
       </v-col>
     </v-row>
     <v-divider class="my-6" />
-    <v-btn color="primary" type="submit"> Submit </v-btn>
+    <div class="text-right">
+      <v-btn color="primary" type="submit"> Submit </v-btn>
+    </div>
   </v-form>
 </template>
 <script>
+import ItemsInput from "./inputs/ItemsInput.vue";
 import mockInvoices from "@/mocks/invoices.json";
 export default {
+  components: {
+    ItemsInput,
+  },
   data() {
     return {
       valid: true,
