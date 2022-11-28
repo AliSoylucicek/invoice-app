@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import InvoiceCreateView from "@/views/InvoiceCreateView.vue";
+import InvoiceCreate from "@/views/InvoiceCreate.vue";
+import InvoiceList from "@/views/InvoiceList.vue";
 
 Vue.use(VueRouter);
 
@@ -12,9 +13,14 @@ const routes = [
     component: HomeView,
   },
   {
+    path: "/invoice",
+    name: "invoice",
+    component: InvoiceList,
+  },
+  {
     path: "/invoice/create",
     name: "invoice-create",
-    component: InvoiceCreateView,
+    component: InvoiceCreate,
   },
   {
     path: "/about",

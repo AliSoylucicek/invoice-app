@@ -19,5 +19,29 @@
       "method": "bank",
       "detail": "1234567898765432"
     }
+  },
+  {
+    "identifier": {
+      "id": "16",
+      "year": "2022"
+    },
+    "date": "2022-01-02",
+    "purchaser": {
+      "name": "purchaser 2",
+      "taxCode": "12345678901"
+    },
+    "provider": {
+      "name": "provider 2",
+      "taxCode": "12345678901"
+    },
+    "items": [
+      { "amount": 35, "quantity": 15, "tax": 20 },
+      { "amount": 30, "quantity": 10, "tax": 20 }
+    ],
+    "payment": {
+      "amount": 2100,
+      "method": "bank",
+      "detail": "1234567898765432"
+    }
   }
 ]
