@@ -1,7 +1,8 @@
 <template>
-  <v-container class="py-6" fluid>
+  <v-container class="py-6">
     <v-row justify="center">
       <v-col cols="12" sm="10">
+        <h5 class="text-h5 mb-6">Create new invoice</h5>
         <v-card>
           <v-card-text>
             <InvoiceForm @submit="onSubmit" />

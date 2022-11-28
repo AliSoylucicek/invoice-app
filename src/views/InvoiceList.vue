@@ -1,13 +1,16 @@
 <!-- eslint-disable vue/valid-v-slot -->
 <template>
-  <v-container>
+  <v-container class="mt-6">
     <v-row justify="center">
-      <v-col cols="10" class="text-right">
-        <v-btn color="primary" :to="{ name: 'invoice-create' }">
-          <v-icon>mdi-plus</v-icon> Create Invoice
-        </v-btn>
+      <v-col cols="12" md="10" class="text-right">
+        <div class="d-flex justify-space-between mb-2">
+          <h5 class="text-h5">Invoice List</h5>
+          <v-btn color="primary" :to="{ name: 'invoice-create' }">
+            <v-icon>mdi-plus</v-icon> Create Invoice
+          </v-btn>
+        </div>
       </v-col>
-      <v-col cols="10">
+      <v-col cols="12" md="10">
         <v-data-table
           :headers="headers"
           :items="invoiceList"
