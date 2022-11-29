@@ -2,13 +2,14 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import InvoiceCreate from "@/views/InvoiceCreate.vue";
 import InvoiceList from "@/views/InvoiceList.vue";
+import InvoiceDetail from "@/views/InvoiceDetail.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/invoice",
-    name: "invoice",
+    name: "invoice-list",
     component: InvoiceList,
   },
   {
@@ -17,8 +18,13 @@ const routes = [
     component: InvoiceCreate,
   },
   {
+    path: "/invoice/:id",
+    name: "invoice-detail",
+    component: InvoiceDetail,
+  },
+  {
     path: "*",
-    redirect: { name: "invoice" },
+    redirect: { name: "invoice-list" },
   },
 ];
 

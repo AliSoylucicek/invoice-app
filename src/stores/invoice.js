@@ -10,4 +10,7 @@ export const useInvoiceStore = defineStore("invoice", {
       this.invoices.push(payload);
     },
   },
+  getters: {
+    lastInvoiceId: (state) => state.invoices.at(-1).id,
+  },
 });

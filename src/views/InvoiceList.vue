@@ -15,6 +15,7 @@
           :headers="headers"
           :items="invoiceList"
           class="elevation-1"
+          @click:row="openDetail"
         />
       </v-col>
     </v-row>
@@ -39,10 +40,16 @@ export default {
       ],
     };
   },
+  methods: {
+    openDetail(item) {
+      this.$router.push({ name: "invoice-detail", params: { id: item.id } });
+    },
+  },
   computed: {
     ...mapState(useInvoiceStore, ["invoices"]),
     invoiceList() {
       return this.invoices.map((invoice) => ({
+        id: invoice.id,
         identifier: `${invoice.identifier.id}/${invoice.identifier.year}`,
         provider: invoice.provider.name,
         purchaser: invoice.purchaser.name,
