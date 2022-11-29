@@ -191,6 +191,7 @@ export default {
       this.$refs.menu.save(date);
     },
     getMaxDate() {
+      // returns current date to be used as maximum limit for date selection
       return new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
         .toISOString()
         .substring(0, 10);
