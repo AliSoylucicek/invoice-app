@@ -15,8 +15,26 @@
           :headers="headers"
           :items="invoiceList"
           class="elevation-1"
-          @click:row="openDetail"
-        />
+        >
+          <template #item.actions="{ item }">
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on }">
+                <v-icon class="mr-2" @click="openDetail(item)" v-on="on">
+                  mdi-text-box-search-outline
+                </v-icon>
+              </template>
+              <span> Open details</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on }">
+                <v-icon class="mr-2" @click="sendInvoice(item.id)" v-on="on">
+                  mdi-file-send-outline
+                </v-icon>
+              </template>
+              <span> Send Invoice</span>
+            </v-tooltip>
+          </template>
+        </v-data-table>
       </v-col>
     </v-row>
   </v-container>
@@ -36,13 +54,18 @@ export default {
         { text: "Provider", value: "provider" },
         { text: "Purchaser", value: "purchaser" },
         { text: "Items", value: "items" },
-        { text: "Total Amount", value: "amount" },
+        { text: "Total Amount (€)", value: "amount" },
+        { text: "Actions", value: "actions", sortable: false },
       ],
     };
   },
   methods: {
     openDetail(item) {
       this.$router.push({ name: "invoice-detail", params: { id: item.id } });
+    },
+    sendInvoice(id) {
+      // This is just to simulate a send action
+      window.alert(`Invoice with id: ${id} sent!`);
     },
   },
   computed: {
