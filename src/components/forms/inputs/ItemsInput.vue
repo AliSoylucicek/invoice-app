@@ -5,24 +5,35 @@
         <v-col cols="1" class="text-center py-8">
           <h6 class="text-h6 text--primary">{{ index + 1 }}</h6>
         </v-col>
-        <v-col cols="3">
-          <v-text-field
-            v-model="item.amount"
-            suffix="€"
-            label="Price"
-            required
-          />
-        </v-col>
-        <v-col cols="3">
-          <v-text-field v-model="item.quantity" label="Quantity" required />
-        </v-col>
-        <v-col cols="4">
-          <v-text-field
-            v-model="item.tax"
-            suffix="%"
-            label="Unit Tax"
-            required
-          />
+        <v-col cols="10">
+          <v-row>
+            <v-col>
+              <v-text-field
+                v-model="item.description"
+                label="Description"
+                required
+              />
+            </v-col>
+            <v-col>
+              <v-text-field
+                v-model="item.amount"
+                suffix="€"
+                label="Price"
+                required
+              />
+            </v-col>
+            <v-col>
+              <v-text-field v-model="item.quantity" label="Quantity" required />
+            </v-col>
+            <v-col>
+              <v-text-field
+                v-model="item.tax"
+                suffix="%"
+                label="Unit Tax"
+                required
+              />
+            </v-col>
+          </v-row>
         </v-col>
         <v-col cols="1" class="text-center py-8">
           <v-btn icon @click="removeItem(index)" data-testid="remove-item">
@@ -47,7 +58,7 @@ export default {
     addItem() {
       this.$emit("input", [
         ...this.value,
-        { amount: null, quantity: null, tax: null },
+        { description: "", amount: null, quantity: null, tax: null },
       ]);
     },
     removeItem(itemIndex) {
@@ -59,4 +70,3 @@ export default {
   },
 };
 </script>
-<style lang=""></style>

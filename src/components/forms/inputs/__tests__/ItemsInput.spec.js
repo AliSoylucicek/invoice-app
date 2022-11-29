@@ -10,8 +10,8 @@ let items;
 describe("ItemsInput", () => {
   propsData = {
     value: [
-      { amount: 1, quantity: 1, tax: 10 },
-      { amount: null, quantity: null, tax: null },
+      { description: "", amount: 1, quantity: 1, tax: 10 },
+      { description: "", amount: null, quantity: null, tax: null },
     ],
   };
   beforeEach(() => {
@@ -42,7 +42,7 @@ describe("ItemsInput", () => {
     expect(wrapper.emitted("input")).toBeTruthy();
     expect(wrapper.emitted("input")[0][0]).toStrictEqual([
       ...propsData.value,
-      { amount: null, quantity: null, tax: null },
+      { description: "", amount: null, quantity: null, tax: null },
     ]);
   });
   it("updates items list when remove item button is clicked", async () => {

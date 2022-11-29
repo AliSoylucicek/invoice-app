@@ -13,7 +13,9 @@
       "name": "provider",
       "taxCode": "12345678901"
     },
-    "items": [{ "amount": 35, "quantity": 15, "tax": 20 }],
+    "items": [
+      { "description": "Sottaceto", "amount": 35, "quantity": 15, "tax": 20 }
+    ],
     "payment": {
       "amount": 1500,
       "method": "bank",
@@ -35,8 +37,8 @@
       "taxCode": "12345678901"
     },
     "items": [
-      { "amount": 35, "quantity": 15, "tax": 20 },
-      { "amount": 30, "quantity": 10, "tax": 20 }
+      { "description": "Sottaceto", "amount": 35, "quantity": 15, "tax": 20 },
+      { "description": "Sottolio", "amount": 30, "quantity": 10, "tax": 20 }
     ],
     "payment": {
       "amount": 2100,

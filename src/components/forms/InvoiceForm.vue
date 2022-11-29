@@ -99,14 +99,7 @@
       <v-col cols="12">
         <h6 class="text-h6 text--primary">Payment</h6>
       </v-col>
-      <v-col cols="12" md="4">
-        <v-text-field
-          v-model="payment.amount"
-          suffix="€"
-          label="Total amount"
-          required
-        />
-      </v-col>
+
       <v-col cols="12" md="4">
         <v-select
           v-model="payment.method"
@@ -119,6 +112,14 @@
           v-model="payment.detail"
           counter="34"
           label="IBAN"
+          required
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <v-text-field
+          v-model="payment.amount"
+          suffix="€"
+          label="Total amount"
           required
         />
       </v-col>
