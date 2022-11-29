@@ -1,6 +1,6 @@
 # Invoice App
 
-This is an example application of an invoice management sysyem written in Vue.js
+This is an example application of an invoice management system written in Vue.js
 
 ## Project setup
 
@@ -30,7 +30,7 @@ npm run serve
 npm run build
 ```
 
-### Run your unit tests
+### Run unit tests
 
 ```
 npm run test:unit
