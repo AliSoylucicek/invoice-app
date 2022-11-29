@@ -14,6 +14,7 @@
           v-model="identifier.year"
           counter="4"
           label="Year"
+          :rules="[rules.required]"
           required
         />
       </v-col>
@@ -31,6 +32,7 @@
               v-model="date"
               label="Date"
               prepend-icon="mdi-calendar"
+              :rules="[rules.required]"
               readonly
               v-bind="attrs"
               v-on="on"
@@ -38,11 +40,7 @@
           </template>
           <v-date-picker
             v-model="date"
-            :max="
-              new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-                .toISOString()
-                .substring(0, 10)
-            "
+            :max="getMaxDate()"
             min="1950-01-01"
             @change="save"
           ></v-date-picker>
@@ -168,13 +166,8 @@ export default {
     };
   },
   mounted() {
-    const mockInvoice = mockInvoices[0];
-    this.identifier = mockInvoice.identifier;
-    this.date = mockInvoice.date;
-    this.provider = mockInvoice.provider;
-    this.purchaser = mockInvoice.purchaser;
-    this.items = mockInvoice.items;
-    this.payment = mockInvoice.payment;
+    // Uncomment next line to prefill the form with mock data
+    // this.loadMockFormData();
   },
   methods: {
     async submit() {
@@ -197,8 +190,21 @@ export default {
     save(date) {
       this.$refs.menu.save(date);
     },
+    getMaxDate() {
+      return new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+        .toISOString()
+        .substring(0, 10);
+    },
+    loadMockFormData() {
+      const mockInvoice = mockInvoices[0];
+      this.identifier = mockInvoice.identifier;
+      this.date = mockInvoice.date;
+      this.provider = mockInvoice.provider;
+      this.purchaser = mockInvoice.purchaser;
+      this.items = mockInvoice.items;
+      this.payment = mockInvoice.payment;
+    },
   },
   mixins: [validation],
 };
 </script>
-<style lang=""></style>
